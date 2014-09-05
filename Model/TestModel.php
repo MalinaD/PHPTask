@@ -5,7 +5,7 @@ class TestModel extends Test
 {
     public $topTopCatIds;
 
-	public $topCatIds;
+	public $topCatIds = array(); //this should be an array, declare it
 
 	public $searchWord;
 
@@ -21,7 +21,7 @@ class TestModel extends Test
 		if(!empty($element)) {
 			sleep(600);
 			$this->output("Checking if see element");
-			$this->assertEquals($element->displayed(), true);
+			$this->assertEquals(true,$element->displayed()); //reverse the values of assertEquals
 		}
 	}
 
@@ -29,7 +29,7 @@ class TestModel extends Test
 		if(!empty($element)) {
 			sleep(1);
 			$this->output("Checking if don't see element");
-			$this->assertEquals(!$element->displayed(), true);
+			$this->assertEquals(true,!$element->displayed());
 		}
 	}
 
@@ -43,7 +43,7 @@ class TestModel extends Test
 		sleep(1);
 		$this->output("Checking if elements are not equals");
 		$equals = ($elementOne !== $elementTwo);//sign change
-		$this->assertEquals($equals, true);
+		$this->assertEquals(true,$equals);
 	}
 
 	public function iAmOn($pageName = null, $element = null, $skip = null) {
@@ -52,9 +52,9 @@ class TestModel extends Test
 			$this->output("Checking if i am on " . $pageName);
             if($skip == null && !empty($element))
             {//changing the nested if to be more compacted
-                    $this->assertEquals($element->displayed(), true);
+                    $this->assertEquals(true,$element->displayed());
                 } else {
-                    $this->assertEquals($this->byCssSelector($this->pageSpecificElements[$pageName])->displayed(), true);
+                    $this->assertEquals(true,$this->byCssSelector($this->pageSpecificElements[$pageName])->displayed());
                 }
             }
 	}
