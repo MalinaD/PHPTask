@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . '/Abstract/Test.php');
+require_once(dirname(dirname(__FILE__)) . '../Abstract/Test.php');//change dir
 
 class TestModel extends Test
 {
@@ -42,23 +42,22 @@ class TestModel extends Test
 	public function areNotEquals($elementOne, $elementTwo) {
 		sleep(1);
 		$this->output("Checking if elements are not equals");
-		$equals = ($elementOne != $elementTwo);
+		$equals = ($elementOne !== $elementTwo);//sign change
 		$this->assertEquals($equals, true);
 	}
 
 	public function iAmOn($pageName = null, $element = null, $skip = null) {
-		if (!empty($pageName)) {
+	   if (!empty($pageName)) {
 			sleep(1);
 			$this->output("Checking if i am on " . $pageName);
-            if($skip == null)
-            {
-                if (!empty($element)) {
+            if($skip == null && !empty($element))
+            {//changing the nested if to be more compacted
                     $this->assertEquals($element->displayed(), true);
                 } else {
                     $this->assertEquals($this->byCssSelector($this->pageSpecificElements[$pageName])->displayed(), true);
                 }
             }
-		}
 	}
+	
 }
 ?>
