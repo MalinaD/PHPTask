@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . '/General.php');
+require_once(dirname(dirname(__FILE__)) .'/' . '../General.php');//change dir
 
 class HeaderActionsCustomerService extends GeneralActions {
 	
