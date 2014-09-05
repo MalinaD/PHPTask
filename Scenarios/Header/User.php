@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . '/' . '../Actions/Footer/User.php');
+require_once(dirname(dirname(__FILE__)) . '/' . '../Actions/Header/User.php');//change Footer folder with Header
 
 class HeaderScenarioUser extends HeaderActionsUser {
 
@@ -39,7 +39,8 @@ class HeaderScenarioUser extends HeaderActionsUser {
 
     public function runHeaderScenarioUser() {
         $this->goToRegister();
-        $this->goToPasswordRecovery();
+        $this->goToPasswordChange();//changed from goToPasswordRecovery
+        $this->goToPasswordRecovery();//missing goToPasswordChange
         $this->login();
         $this->goToAccountInformation();
         $this->goToAddresses();
