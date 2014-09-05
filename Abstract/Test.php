@@ -4,7 +4,7 @@ class Test
 {
 	public $I;
 
-	public $translation;
+	public $translation = array(); //declare as array
 
 	public $langCode;
 
@@ -39,7 +39,7 @@ class Test
                 return $element;
             }
             catch (Exception $e) {
-
+                throw $e; //show the exception
             }
         }
         return false;
@@ -50,9 +50,9 @@ class Test
 		return $this->I->$func($param);
 	}
 
-	public function back() {
+	public function back($param) {
 		$func = __FUNCTION__;
-		return $this->I->$func();
+		return $this->I->$func($param); //add parameter
 	}
 
 	public function byLinkText($param) {
