@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . '/Model/TestModel.php');
+require_once(dirname(dirname(__FILE__)) . '../Model/TestModel.php');//change dir
 
 class TestHelper extends TestHelper
 {
@@ -47,7 +47,9 @@ class TestHelper extends TestHelper
 
     public function hoverOnMainCategory() {
 		$this->hoverOnMDD();
-		$id = $this->topCatIds[array_rand($this->topCatIds)];
+		//$id = $this->topCatIds[array_rand($this->topCatIds)];
+                //array_rand(array,number) 
+                $id = $this->array_rand(topCatIds,$this->topCatIds);
 		$cssId = "a.level0:nth-child(" . $id . ")";
 		$element = $this->byCssSelector($cssId);
 		$this->moveto($element);
